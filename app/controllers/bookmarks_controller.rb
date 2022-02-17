@@ -5,9 +5,9 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    # A restaurant_id is needed to create a review
-    @list = Restaurant.find(params[:list_id])
-    @bookmark = Review.new(review_params)
+    # A list_id is needed to create a bookmark(comment)
+    @list = List.find(params[:list_id])
+    @bookmark = Bookmark.new(bookmark_params)
     @bookmark.list = @list
 
     if @bookmark.save
