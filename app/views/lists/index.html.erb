@@ -1,0 +1,11 @@
+
+index: <h1>List of movies</h1>
+<!-- Button to create a new list -->
+<ul>
+
+<% @lists.each do |list| %>
+  <!-- id not required, controller -->
+  <li><%= link_to list.name, list_path(list) %></li>
+<% end %>
+</ul>
+<%= link_to "Create list", new_list_path %>
