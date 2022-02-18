@@ -5,5 +5,5 @@ class Bookmark < ApplicationRecord
   validates :comment, length: { minimum: 6 }
 
   # This validate the uniqueness of a pair of ids
-  validates_uniqueness_of :list_id, :scope => [:movie_id]
+  validates :movie_id, uniqueness: { scope: :list_id, message: "It's already in your list!" }
 end

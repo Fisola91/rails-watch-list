@@ -1,4 +1,11 @@
 show: <!-- Show list details -->
 <h1><%= @list.name %></h1>
 <!-- Link back to home -->
+<% @list.movies.each do |movie| %>
+  <p><strong>Movie title:</strong> <%= movie.title %></p>
+  <p><%= movie.overview %></p>
+<% end %>
 <%= link_to "Back to home", lists_path %>
+
+<!-- Link back to home -->
+<%= link_to "Add a new movie", new_list_bookmark_path(@list.id) %>
