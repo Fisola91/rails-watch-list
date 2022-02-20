@@ -33,10 +33,12 @@ class ListsController < ApplicationController
 
   private
 
+  # Only allow a trusted parameter "white list" through.
   def list_params
     params.require(:list).permit(:name)
   end
 
+  # This uses callback to share common setup or constriants between action
   def set_list
     @list = List.find(params[:id])
   end
